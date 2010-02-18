@@ -1,0 +1,30 @@
+<h1>Chapter Members</h1>
+
+<table class="datagrid">
+	<thead class="datagrid">
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Position</th>
+    <th>Year</th>
+    <th>Major</th>
+	</thead>
+
+<% @members.each do |member| %>
+<tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+    <td><%=h member.first_name %></td>
+    <td><%=h member.last_name %></td>
+    <td align="left"><%=h member.position %></td>
+    <td align="center"><%=h member.year %></td>
+    <td><%=h member.primary_major %></td>
+    <td><%= link_to (image_tag("refresh.gif")), member %></td>
+    <td><%= link_to (image_tag("edit.gif")), edit_member_path(member) %></td>
+    <td><%= link_to (image_tag("trash.gif")), member, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= will_paginate @members, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+<br />
+
+<%= link_to (image_tag("add.gif")), new_member_path %>

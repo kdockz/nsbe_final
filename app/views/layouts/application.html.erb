@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>Carnegie Mellon NSBE :: <%= controller.controller_name.capitalize %></title>
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+		<%= stylesheet_link_tag 'text', 'layout', 'datagrid' %>
+		
+		<!--jrails and jquery files that need some work -->
+		<script type="text/javascript" src="/javascripts/jquery.js"></script><br />
+
+		<script type="text/javascript" src="/javascripts/jquery-ui.js"></script><br />
+
+		<script type="text/javascript" src="/javascripts/jquery-fx.js"></script><br />
+
+		<script type="text/javascript" src="/javascripts/jrails.js"></script>
+		
+		<script type="text/javascript" src="/javascripts/tablesorter.min.js"></script>
+		
+			<script>
+			$(document).ready(function() {
+
+
+				$("#datagrid").tablesorter();
+
+				});
+
+			})
+
+			</script>
+	</head>
+
+	<body>
+		<div id="wrap">
+			<div id="header">			
+			</div>
+						
+			<div id="login">
+			<% if logged_in? -%>
+			<li><%= link_to 'Logout', logout_path %></li>
+			<% else -%>
+			<li><%= link_to 'Login', login_path %></li>
+			<% end -%>
+			</div>
+			<br />
+
+			<div id="nav_side">
+	        	<ul>
+	            	<!-- OPTIONS FOR EVERYONE -->
+					<li><%= link_to 'Home', home_path('index') %></li> 
+	         		<li><%= link_to 'News', stories_path %></li>
+					<li><%= link_to 'Events', events_path %></li>				
+					<li><%= link_to 'Members', members_path %></li>
+					<li><%= link_to 'Members', members_path %></li>
+				
+				</ul>
+	        </div> <!-- end of nav div -->
+			<div style="clear:both;"></div>
+	    	<div id="body">
+				<p style="color: blue" id="notice"><%= flash[:notice] %></p>
+				<%= yield %>
+			</div> <!-- end of body div -->
+
+			<%= render :partial => "partials/footer" %>
+			
+		</div><!-- end of wrap div -->
+	</body>
+</html>

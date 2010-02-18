@@ -1,0 +1,27 @@
+<table width="500" align="center" id="user_information">
+	<% fields_for "member[user_attributes][]", User.new do |user_form| %> 
+	<tr align="center">
+		<td>
+			User Information:
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<br />
+		</td>
+	</tr>
+	<tr align="center">
+		<td>Username: <%= user_form.text_field :login, :size => 12 %>&nbsp;&nbsp;&nbsp;
+			Email: <%= user_form.text_field :email, :size => 15 %></td>
+	</tr>
+	<tr>
+		<td>
+			<br />
+		</td>
+	</tr>
+	<tr align="center">
+		<td>Password: <%= user_form.password_field :password, :size => 10 %>&nbsp;&nbsp;&nbsp;
+			Confirm Password: <%= user_form.password_field :password_confirmation, :size => 12 %></td>
+	</tr>
+	<% end %>
+</table>

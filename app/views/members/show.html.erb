@@ -1,0 +1,40 @@
+<p>
+  <b>First name:</b>
+  <%=h @member.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%=h @member.last_name %>
+</p>
+
+<%= image_tag @member.photo.url %>
+
+<p>
+  <b>Position:</b>
+  <%=h @member.position %>
+</p>
+
+<p>
+  <b>Year:</b>
+  <%=h @member.year %>
+</p>
+
+<p>
+  <b>Major:</b>
+  <%=h @member.major %>
+</p>
+
+<p>
+  <b>E board:</b>
+  <%=h @member.e_board %>
+</p>
+
+<p>
+  <b>Bio:</b>
+  <%=h @member.bio %>
+</p>
+
+
+<%= link_to (image_tag("trash.gif")), edit_member_path(@member) %> |
+<%= link_to 'Back', members_path %>

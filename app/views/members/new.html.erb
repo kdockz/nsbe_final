@@ -1,0 +1,23 @@
+<h1>Add Member</h1>
+
+<% form_for(@member) do |f| %>
+  <%= f.error_messages %>
+
+<%= render :partial => 'new_user' %><br />
+
+<table id="member_info">
+	<tr>
+		<td valign="top">
+			<%= render :partial => 'new_member', :locals => { :f => f } %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+    		<%= f.submit 'Create' %>	
+		</td>
+  	</tr>
+</table>
+ 
+<% end %>
+
+<%= link_to 'Back', members_path %>
